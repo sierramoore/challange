@@ -8,16 +8,12 @@
     --color-grey-light: #EBECED;
 
     /* typography */
-    --font-primary: "FontAwesome Regular", Helvetica, Arial,sans-serif;
+    --font-primary: "FontAwesome Regular", Helvetica, Arial, sans-serif;
 
     /* global sizes */
     --border-radius: 3px;
     --max-page-width: 114rem;
     --line-height: 1.4;
-
-    /* media queries */
-    --tab-land: 1010px;
-    --tab-port: 900px;
 }
 
 @font-face {
@@ -27,7 +23,7 @@
     url('../fonts/fontawesome-webfont.woff2') format('woff2'),
     url('../fonts/fontawesome-webfont.woff') format('woff'),
     url('../fonts/fontawesome-webfont.ttf')  format('truetype'),
-    url('../fonts/fontawesome-webfont.svg#svgFontName') format('svg');
+    url('../fonts/fontawesome-webfont.svg#fontawesomeregular') format('svg');
 }
 /* UTILITIES */
 .u-with-mid {
@@ -60,6 +56,10 @@ html {
 body {
     font-family: var(--font-primary);
     overflow-x: hidden;
+
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 /* NAV */
@@ -86,11 +86,14 @@ body {
     padding: 0 .5rem;
 }
 .separator-image {
-    width: 100vw;
+    width: 100%;
     min-height: 10rem;
     background: url("../img/separator-image.jpg");
-    object-fit: contain;
+    object-fit: cover;
+    background-position: center;
 }
+
+
 /* HEADINGS AND TEXT */
 .heading-primary {
     font-family: var(--font-primary);
@@ -116,6 +119,7 @@ body {
     text-underline-position: under;
 }
 
+
 /* CONTAINERS */
 .wrapper {
     display: flex;
@@ -124,6 +128,8 @@ body {
     max-width: var(--max-page-width);
     margin: 0 auto;
     height: auto;
+
+    flex: 1;
 }
 
 .book-section {
@@ -152,12 +158,14 @@ body {
 }
 
 .line {
-    border-top: .5px solid var(--color-grey-light);
+    border-top: .5px;
+    border-color: var(--color-grey-light);
     width: 90%;
     position: absolute;
     bottom: 8rem;
     z-index: -1;
 }
+
 
 /* FORM */
 .form fieldset {
@@ -166,6 +174,7 @@ body {
 .form {
     display: flex;
     flex-direction: column;
+    font-family: inherit;
     background-color: var(--color-grey-light);
     padding: 3.5rem 2rem;
     border-radius: var(--border-radius);
@@ -174,8 +183,9 @@ body {
 .form__header {
     color: var(--color-primary);
     text-align: center;
+    text-transform: uppercase;
     font-weight: 500;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     margin-bottom: 2rem;
 }
 .form__input{
@@ -186,13 +196,12 @@ body {
 .form__checkboxes {
     display: flex;
     flex-direction: column;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     color: var(--color-grey-dark);
     font-size: 1.2rem;
-    font-family: inherit;
 }
 .form__input--checkbox {
-    margin: 1rem 0;
+    margin-right: .5rem;
 }
 .form__checkboxes a {
     color: var(--color-primary);
@@ -206,22 +215,19 @@ body {
     color: #fff;
     font-weight: bold;
     font-size: 1.4rem;
+    text-transform: uppercase;
     font-family: inherit;
+    border: none;
 }
-input[type='checkbox'] {
-    margin-right: .5rem;
+.form__label {
+    padding: 1rem 0 .5rem 0;
 }
-
-
 
 
 /* FOOTER */
 .footer {
     background-color: var(--color-grey-dark);
-    /*position: absolute;*/
-    /*bottom: 0;*/
     width: 100vw;
-
 }
 .footer-frame {
     max-width: var(--max-page-width);
@@ -238,7 +244,6 @@ input[type='checkbox'] {
     height: auto;
     padding: 2rem;
 }
-
 .footer-frame__ul {
     list-style-type: none;
     display: flex;
@@ -250,19 +255,20 @@ input[type='checkbox'] {
     padding: 0 1rem;
     font-size: 1.2rem;
 }
-
 .footer-frame__li:not(:last-of-type):after {
     content: "|";
     color: var(--color-grey-mid-2);
     padding-left: .5rem;
 }
-/*POPUP*/
+
+
+/* POPUP */
 .popup {
     content: "";
     position: fixed;
-    /*display: none;*/
-    /*visibility: hidden;*/
-    background-color: rgba(0,0,0,0.4);
+    display: none;
+    visibility: hidden;
+    background-color: rgba(0,0,0,0.5);
     top: 0;
     left: 0;
     right: 0;
@@ -270,6 +276,7 @@ input[type='checkbox'] {
     height: 100%;
     width: 100%;
     z-index: 1;
+    animation: fadeIn .3s ease-in forwards;
 }
 .popup__body {
     position: fixed;
@@ -283,18 +290,42 @@ input[type='checkbox'] {
     background-color: var(--color-grey-light);
     font-family: var(--font-primary);
     color: var(--color-primary);
-    font-size: 1.8rem;
+    font-size: 2rem;
+    letter-spacing: 1px;
     text-align: center;
+    animation: scaleIn .3s ease-in;
 }
 .popup__x {
-    padding: 1.5rem 2rem;
+    padding: 2rem 2.5rem;
     font-size: 1.8rem;
     position: absolute;
-    left: 1rem;
+    left: 0;
+}
+.popup__content {
+    margin: 25% auto;
 }
 
 
-/*MEDIA QUIRES*/
+/* ANIMATIONS */
+@keyframes fadeIn {
+    from{
+        background-color: rgba(0,0,0,0.0);
+    }
+    to{
+        background-color: rgba(0,0,0,0.5)
+    }
+}
+@keyframes scaleIn {
+    from{
+        transform: translate(-50%, -50%) scale(.8);
+    }
+    to{
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+
+/* MEDIA QUIRES */
 @media only screen and (max-width: 1010px) {
     html {
         font-size: 56.25%;

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>InboundCycle</title>
@@ -9,28 +10,31 @@
 </head>
 <body>
   <!-- Header -->
-  <header class="header">
-    <!-- Logotype -->
-    <img src="img/inboundcycle-logo.png" class="logotype" alt="InboundCycle">
-    <!-- Social Icons -->
-    <ul class="social-icons">
-      <li>
-        <a href="https://www.facebook.com/InboundCycle" target="_blank" title="Visita nuestra cuenta de Facebook de InboundCycle">
-          <i class="fa fa-facebook-square"></i>
-        </a>
-      </li>
-      <li>
-        <a href="https://twitter.com/inboundcycle" target="_blank" title="Visitar el Twitter de InboundCycle">
-          <i class="fa fa-twitter-square"></i>
-        </a>
-      </li>
-      <li>
-        <a href="https://www.linkedin.com/company/2387654" target="_blank" title="Visitar el LinkedIn de InboundCycle">
-          <i class="fa fa-linkedin-square"></i>
-        </a>
-      </li>
-    </ul>
+  <header>
+    <div class="header">
+      <!-- Logotype -->
+      <img src="img/inboundcycle-logo.png" class="logotype" alt="InboundCycle">
+      <!-- Social Icons -->
+      <ul class="social-icons">
+        <li>
+          <a href="https://www.facebook.com/InboundCycle" target="_blank" title="Visita nuestra cuenta de Facebook de InboundCycle">
+            <i class="fa fa-facebook-square"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/inboundcycle" target="_blank" title="Visitar el Twitter de InboundCycle">
+            <i class="fa fa-twitter-square"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/company/2387654" target="_blank" title="Visitar el LinkedIn de InboundCycle">
+            <i class="fa fa-linkedin-square"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
   </header>
+
   <!-- Separator Image -->
   <div class="separator-image"></div>
   <!-- Container -->
@@ -67,8 +71,10 @@
           <input type="email" name="email"  placeholder="Email" class="form__input">
         </fieldset>
         <fieldset class="form__checkboxes">
-          <label><input type="checkbox" name="legal" class="form__input--checkbox"> Acepto la <a href="#" title="Lea nuestra política de privacidad" class="form__input--checkbox">política de privacidad</a>*</label>
-          <label><input type="checkbox" name="subscription"> Suscríbeme al blog</label>
+          <label class="form__label">
+            <input type="checkbox" name="legal" class="form__input--checkbox"> Acepto la <a href="#" title="Lea nuestra política de privacidad">política de privacidad</a>*</label>
+          <label class="form__label">
+            <input type="checkbox" name="subscription" class="form__input--checkbox"> Suscríbeme al blog</label>
         </fieldset>
         <button type="submit" class="form__btn" id="btn-modal">Descargar</button>
       </form>
@@ -98,8 +104,11 @@
   <div class="popup" id="popup">
     <div class="popup__body">
       <i class="fa fa-times popup__x" id="popup-x"></i>
-      <p>¡Muchas gracias!</p>
-      <img src="img/inboundcycle-logo.png" class="logotype" alt="InboundCycle">
+      <div class="popup__content">
+        <img src="img/inboundcycle-logo.png" class="logotype" alt="InboundCycle">
+        <p>¡Muchas gracias!</p>
+      </div>
+
     </div>
   </div>
 
