@@ -155,7 +155,7 @@ body {
     font-weight: 500;
     color: var(--color-primary);
     text-align: center;
-    margin: 5rem 0;
+    margin: 5rem 0 3rem 0;
 }
 
 .line {
@@ -257,11 +257,11 @@ body {
 .footer-frame__link {
     color: var(--color-grey-light);
     text-decoration: none;
-    padding: 0 1rem;
     font-size: 1.2rem;
 }
 .footer-frame__li:not(:last-of-type):after {
     content: "|";
+    margin-right: .7rem;
     color: var(--color-grey-mid-2);
     padding-left: .5rem;
 }

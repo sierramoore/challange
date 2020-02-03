@@ -1,12 +1,6 @@
-// (function () {
+(function () {
     const popup = document.getElementById('popup');
     const btn = document.getElementById('btn-modal');
-
-    // btn.onclick = (e) => {
-    //     e.preventDefault();
-    //     popup.style.display = "block";
-    //     popup.style.visibility = "visible";
-    // };
 
     btn.addEventListener('click',  (e) => {
         e.preventDefault();
@@ -28,4 +22,4 @@
             popup.style.display = "none";
         }
     };
-// })(); //iief for scope
+})(); //iief for scope
