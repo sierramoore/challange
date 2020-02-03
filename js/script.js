@@ -1,12 +1,18 @@
-(function () {
+// (function () {
     const popup = document.getElementById('popup');
-
     const btn = document.getElementById('btn-modal');
-    btn.onclick = (e) => {
+
+    // btn.onclick = (e) => {
+    //     e.preventDefault();
+    //     popup.style.display = "block";
+    //     popup.style.visibility = "visible";
+    // };
+
+    btn.addEventListener('click',  (e) => {
         e.preventDefault();
         popup.style.display = "block";
         popup.style.visibility = "visible";
-    };
+    });
 
 // close modal with escape btn
     document.addEventListener("keydown", (e) => {
@@ -15,11 +21,11 @@
         }
     });
 
-// close modal on outside click, clicking escape key or x
+// close modal on outside click, or x
     window.onclick = function(e) {
-        const x = document.getElementById('popup-x');
+        const x = document.querySelector('popup-x');
         if (e.target === popup || e.target === x) {
             popup.style.display = "none";
         }
     };
-})(); //iief for scope
+// })(); //iief for scope
